@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemeZone</title>
+    <link rel="stylesheet" href="style/output.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="font-thin text-center">
+      <h3 class="text-base text-slate-800 font-semibold pt-7">
+        Hallo, Selamat Datang
+      </h3>
+      <h1 class="text-3xl font-bold pt-5">
+        Meme<span class="text-['55px'] text-primary">Zone</span>
+      </h1>
+      <p id="ketik" class="text-sm font-semibold text-slate-800 pt-5">
+        Eksplorasi & bebaskan kreativitasmu membuat meme!
+      </p>
+    </div>
+
+    <!-- Upload Image -->
+    <div class="flex items-center justify-center min-h-screen -mt-36">
+      <div class="mx-auto rounded-lg shadow-lg w-56 text-center p-4">
+        <!-- SVG Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100"
+          height="100"
+          viewBox="0 0 512 512"
+          id="Upload"
+          class="mx-auto"
+        >
+          <path
+            d="M398.1 233.2c0-1.2.2-2.4.2-3.6 0-65-51.8-117.6-115.7-117.6-46.1 0-85.7 27.4-104.3 67-8.1-4.1-17.2-6.5-26.8-6.5-29.5 0-54.1 21.9-58.8 50.5C57.3 235.2 32 269.1 32 309c0 50.2 40.1 91 89.5 91H224v-80h-48.2l80.2-83.7 80.2 83.6H288v80h110.3c45.2 0 81.7-37.5 81.7-83.4 0-45.9-36.7-83.2-81.9-83.3z"
+            fill="#ffd233"
+            class="color000000 svgShape"
+          ></path>
+        </svg>
+        <!-- End SVG Icon -->
+
+        <!-- Area Drop untuk Gambar -->
+        <div
+          id="dropArea"
+          class="border-2 border-dashed border-gray-400 text-center p-4 mb-4 hover:bg-gray-200 transition"
+        >
+          <p>Seret dan jatuhkan gambar di sini</p>
+        </div>
+
+        <!-- Input File -->
+        <input type="file" id="myFile" name="myFile" class="hidden" />
+        <label
+          for="myFile"
+          class="mt-4 p-2 bg-gray-400 text-white rounded-lg cursor-pointer mb-4"
+        >
+          Pilih gambar
+        </label>
+      </div>
+    </div>
+
+    <!-- Text Input for Meme -->
+    <div
+      class="flex flex-col items-center justify-center rounded-lg shadow-lg -mt-36 w-56 p-12 mx-auto"
+    >
+      <input
+        type="text"
+        id="memeText"
+        placeholder="Masukkan teks"
+        class="border border-slate-500 px-2 py-2 rounded-md transition duration-200 focus:ring-2 focus:ring-slate-500 focus:border-none"
+      />
+
+      <label for="textColor" class="block mt-4">Warna Teks:</label>
+      <input type="color" id="textColor" value="#ffffff" class="w-full mb-4" />
+    </div>
+
+    <!-- Slider for X and Y Position -->
+    <div class="mx-auto w-56 text-center mt-8">
+      <label for="posX" class="block">Posisi X:</label>
+      <input
+        type="range"
+        id="posX"
+        min="0"
+        max="500"
+        value="250"
+        class="w-full mb-4"
+      />
+
+      <label for="posY" class="block">Posisi Y:</label>
+      <input
+        type="range"
+        id="posY"
+        min="0"
+        max="500"
+        value="250"
+        class="w-full mb-4"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex justify-around mt-4 w lg:flex-col md:flex-col">
+      <button
+        id="submitMeme"
+        class="bg-slate-400 text-white px-4 py-2 rounded-md lg:mb-3 lg:w-44 lg:mx-auto md:w-44 md:mx-auto md:mb-3"
+      >
+        Buat Meme
+      </button>
+
+      <button
+        id="downloadMeme"
+        class="bg-slate-400 text-white px-4 py-2 rounded-md lg:w-44 lg:mx-auto md:w-44 md:mx-auto"
+        disabled
+      >
+        Unduh Meme
+      </button>
+    </div>
+
+    <!-- Canvas for Meme -->
+    <canvas
+      id="memeCanvas"
+      width="250"
+      height="250"
+      class="border border-slate-300 mx-auto mt-4 text-slate-600 mb-6"
+    ></canvas>
+
+    <!-- script js -->
+    <script src="script.js"></script>
+  </body>
+</html>
